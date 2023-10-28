@@ -118,13 +118,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="repository\IRepository.cs" />
+    <Compile Include="ForgotPassword.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Sign-up.cs">
       <SubType>Form</SubType>
@@ -132,11 +132,11 @@
     <Compile Include="Sign-up.Designer.cs">
       <DependentUpon>Sign-up.cs</DependentUpon>
     </Compile>
-    <Compile Include="forgot.cs">
+    <Compile Include="Forgot-Password.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forgot.Designer.cs">
-      <DependentUpon>forgot.cs</DependentUpon>
+    <Compile Include="Forgot-Password.Designer.cs">
+      <DependentUpon>Forgot-Password.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -146,14 +146,15 @@
     <Compile Include="DisplayMe.Designer.cs">
       <DependentUpon>DisplayMe.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Validator.cs" />
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign-up.resx">
       <DependentUpon>Sign-up.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="forgot.resx">
-      <DependentUpon>forgot.cs</DependentUpon>
+    <EmbeddedResource Include="Forgot-Password.resx">
+      <DependentUpon>Forgot-Password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
