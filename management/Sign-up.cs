@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,23 @@ namespace management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (Validator.isValueProvidedNotEmpty(username.Text) && Validator.isValueProvidedNotEmpty(password.Text) && Validator.isValueProvidedNotEmpty(confirmPass.Text))
+            {
+                string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
+                using (var sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(string.Format("INSERT INTO users (Username, Password) VALUES ('{0}', '{1}')", username.Text, password.Text), sqlConnection))
+                    {
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Created successfully!");
+                        this.Close();
+                        Authentication authentication = new Authentication();
+                        authentication.ShowDialog();
+                    }
+                }
+            }
         }
     }
 }
