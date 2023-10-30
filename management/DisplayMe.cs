@@ -78,7 +78,8 @@ namespace management
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Insert_Student insert_Student = new Insert_Student();
+            insert_Student.ShowDialog();
         }
     }
 }
