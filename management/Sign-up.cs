@@ -45,7 +45,7 @@ namespace management
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Validator.isValueProvidedNotEmpty(username.Text) && Validator.isValueProvidedNotEmpty(password.Text) && Validator.isValueProvidedNotEmpty(confirmPass.Text))
+            if (!string.IsNullOrEmpty(username.Text) && !string.IsNullOrEmpty(password.Text) && !string.IsNullOrEmpty(confirmPass.Text))
             {
                 string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
                 using (var sqlConnection = new SqlConnection(connectionString))

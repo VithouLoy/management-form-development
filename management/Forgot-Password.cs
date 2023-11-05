@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace management
@@ -47,7 +40,7 @@ namespace management
 
         private bool isMatchCondition()
         {
-            bool isNoneEmpty = Validator.isValueProvidedNotEmpty(username.Text) && Validator.isValueProvidedNotEmpty(oldPass.Text) && Validator.isValueProvidedNotEmpty(newPass.Text) && Validator.isValueProvidedNotEmpty(confirmPass.Text);
+            bool isNoneEmpty = !string.IsNullOrEmpty(username.Text) && !string.IsNullOrEmpty(oldPass.Text) && !string.IsNullOrEmpty(newPass.Text) && !string.IsNullOrEmpty(confirmPass.Text);
             bool isPasswordMatch = newPass.Text == confirmPass.Text;
             if(isNoneEmpty && isPasswordMatch)
             {
@@ -87,6 +80,16 @@ namespace management
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void confirmPass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void oldPass_TextChanged(object sender, EventArgs e)
         {
 
         }

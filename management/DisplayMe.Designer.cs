@@ -38,6 +38,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,11 +140,22 @@
             this.button6.Text = "Export";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(526, 16);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(157, 49);
+            this.Refresh.TabIndex = 10;
+            this.Refresh.Text = "Refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // DisplayMe
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1178, 616);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button Refresh;
     }
 }

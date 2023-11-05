@@ -18,6 +18,7 @@ namespace management
     {
         public DisplayMe()
         {
+
             InitializeComponent();
             this.displayList();
         }
@@ -47,15 +48,20 @@ namespace management
                             {
                                 int firstNameOrdinal = reader.GetOrdinal("Firstname");
                                 int lastNameOrdinal = reader.GetOrdinal("Lastname");
-                                int dobOrdinal = reader.GetOrdinal("DOB");
                                 int positionOrdinal = reader.GetOrdinal("Position");
                                 int phoneOrdinal = reader.GetOrdinal("Phone");
+                                int emailOrdinal = reader.GetOrdinal("Email");
+                                int genderOrdinal = reader.GetOrdinal("Gender");
+
 
                                 Student student = new Student();
                                 student.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
                                 student.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
-                                student.Dob = reader.GetFieldValue<DateTime>(dobOrdinal);
+                                student.Email = reader.GetFieldValue<string>(emailOrdinal);
                                 student.Position = reader.GetFieldValue<string>(positionOrdinal);
+                                student.Gender = reader.GetFieldValue<string>(genderOrdinal);
+                                
+                                //student.Position = reader.GetFieldValue<string>(positionOrdinal);
                                 student.Phone = reader.GetFieldValue<string>(phoneOrdinal);
 
                                 students.Add(student);
@@ -69,6 +75,10 @@ namespace management
 
             dataGridView1.DataSource = students;
             dataGridView1.Columns["Id"].Visible = false;
+            dataGridView1.Columns["CurrentPlace"].Visible = false;
+            dataGridView1.Columns["PlaceOfBirth"].Visible = false;
+            dataGridView1.Columns["Dob"].Visible = false;
+
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToAddRows = false;
@@ -80,6 +90,14 @@ namespace management
         {
             Insert_Student insert_Student = new Insert_Student();
             insert_Student.ShowDialog();
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            this.dataGridView1.DataSource = null;
+            this.dataGridView1.Update();
+            this.dataGridView1.Refresh();
+            this.displayList();
         }
     }
 }

@@ -110,6 +110,7 @@
             this.confirmPass.Size = new System.Drawing.Size(357, 38);
             this.confirmPass.TabIndex = 7;
             this.confirmPass.UseSystemPasswordChar = true;
+            this.confirmPass.TextChanged += new System.EventHandler(this.confirmPass_TextChanged);
             // 
             // label3
             // 
@@ -150,6 +151,7 @@
             this.oldPass.Size = new System.Drawing.Size(360, 38);
             this.oldPass.TabIndex = 1;
             this.oldPass.UseSystemPasswordChar = true;
+            this.oldPass.TextChanged += new System.EventHandler(this.oldPass_TextChanged);
             // 
             // forgot
             // 

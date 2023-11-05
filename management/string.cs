@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace management
 {
-    internal class Validator
+    internal class @string
     {
-        private Validator() { }
+        private @string() { }
 
-        public static bool isValueProvidedNotEmpty(string val)
+        public static bool NonNull(string val)
         {
             return val.Trim().Length != 0;
+        }
+
+        public static bool IsNullOrEmpty(string val)
+        {
+            return !NonNull(val);
         }
 
     }

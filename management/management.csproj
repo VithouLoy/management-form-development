@@ -118,6 +118,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSource.cs" />
     <Compile Include="ForgotPassword.cs" />
     <Compile Include="Insert_Student.cs">
       <SubType>Form</SubType>
@@ -153,7 +154,6 @@
     <Compile Include="DisplayMe.Designer.cs">
       <DependentUpon>DisplayMe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Validator.cs" />
     <EmbeddedResource Include="Insert_Student.resx">
       <DependentUpon>Insert_Student.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

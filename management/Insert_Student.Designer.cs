@@ -28,55 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.firstname = new System.Windows.Forms.TextBox();
+            this.lastname = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.placeOfBirth = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.email = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.profile = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.currentPlace = new System.Windows.Forms.TextBox();
+            this.male = new System.Windows.Forms.CheckBox();
+            this.female = new System.Windows.Forms.CheckBox();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.position = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.profile)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // firstname
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(172, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 38);
-            this.textBox1.TabIndex = 3;
+            this.firstname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname.Location = new System.Drawing.Point(172, 40);
+            this.firstname.Name = "firstname";
+            this.firstname.Size = new System.Drawing.Size(262, 38);
+            this.firstname.TabIndex = 3;
+            this.firstname.TextChanged += new System.EventHandler(this.firstname_TextChanged);
             // 
-            // textBox2
+            // lastname
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(172, 101);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 38);
-            this.textBox2.TabIndex = 4;
+            this.lastname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastname.Location = new System.Drawing.Point(172, 101);
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(262, 38);
+            this.lastname.TabIndex = 4;
             // 
-            // textBox3
+            // phone
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(172, 212);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 38);
-            this.textBox3.TabIndex = 5;
+            this.phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone.Location = new System.Drawing.Point(172, 212);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(262, 38);
+            this.phone.TabIndex = 5;
             // 
             // label1
             // 
@@ -109,13 +112,13 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Phone";
             // 
-            // dateTimePicker1
+            // dateOfBirth
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(172, 347);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(497, 38);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateOfBirth.Location = new System.Drawing.Point(172, 347);
+            this.dateOfBirth.Name = "dateOfBirth";
+            this.dateOfBirth.Size = new System.Drawing.Size(497, 38);
+            this.dateOfBirth.TabIndex = 9;
             // 
             // label4
             // 
@@ -137,14 +140,15 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Birth Place";
             // 
-            // textBox4
+            // placeOfBirth
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(172, 420);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(590, 38);
-            this.textBox4.TabIndex = 11;
+            this.placeOfBirth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.placeOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeOfBirth.Location = new System.Drawing.Point(172, 420);
+            this.placeOfBirth.Name = "placeOfBirth";
+            this.placeOfBirth.Size = new System.Drawing.Size(590, 38);
+            this.placeOfBirth.TabIndex = 11;
+            this.placeOfBirth.TextChanged += new System.EventHandler(this.placeOfBirth_TextChanged);
             // 
             // label6
             // 
@@ -156,18 +160,19 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Email";
             // 
-            // textBox5
+            // email
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(172, 278);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(262, 38);
-            this.textBox5.TabIndex = 13;
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.email.Location = new System.Drawing.Point(172, 278);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(497, 38);
+            this.email.TabIndex = 13;
+            this.email.TextChanged += new System.EventHandler(this.email_TextChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(501, 535);
+            this.button1.Location = new System.Drawing.Point(501, 621);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 61);
             this.button1.TabIndex = 15;
@@ -177,7 +182,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(928, 263);
+            this.button2.Location = new System.Drawing.Point(903, 254);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 43);
             this.button2.TabIndex = 16;
@@ -185,14 +190,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // pictureBox1
+            // profile
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(928, 22);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(182, 216);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.profile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profile.Location = new System.Drawing.Point(888, 22);
+            this.profile.Name = "profile";
+            this.profile.Size = new System.Drawing.Size(222, 216);
+            this.profile.TabIndex = 2;
+            this.profile.TabStop = false;
+            this.profile.Click += new System.EventHandler(this.profile_Click);
             // 
             // label7
             // 
@@ -204,37 +210,39 @@
             this.label7.TabIndex = 18;
             this.label7.Text = "Current Place";
             // 
-            // textBox6
+            // currentPlace
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(172, 485);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(590, 38);
-            this.textBox6.TabIndex = 17;
+            this.currentPlace.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentPlace.Location = new System.Drawing.Point(172, 485);
+            this.currentPlace.Name = "currentPlace";
+            this.currentPlace.Size = new System.Drawing.Size(590, 38);
+            this.currentPlace.TabIndex = 17;
             // 
-            // checkBox1
+            // male
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(175, 166);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 29);
-            this.checkBox1.TabIndex = 19;
-            this.checkBox1.Text = "Male";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.male.AutoSize = true;
+            this.male.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.male.Location = new System.Drawing.Point(175, 166);
+            this.male.Name = "male";
+            this.male.Size = new System.Drawing.Size(77, 29);
+            this.male.TabIndex = 19;
+            this.male.Text = "Male";
+            this.male.UseVisualStyleBackColor = true;
+            this.male.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // female
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(302, 166);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(99, 29);
-            this.checkBox2.TabIndex = 20;
-            this.checkBox2.Text = "Female";
-            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.female.AutoSize = true;
+            this.female.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.female.Location = new System.Drawing.Point(302, 166);
+            this.female.Name = "female";
+            this.female.Size = new System.Drawing.Size(99, 29);
+            this.female.TabIndex = 20;
+            this.female.Text = "Female";
+            this.female.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.female.UseVisualStyleBackColor = true;
+            this.female.CheckedChanged += new System.EventHandler(this.female_CheckedChanged);
             // 
             // label8
             // 
@@ -246,59 +254,92 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Marital status";
             // 
+            // position
+            // 
+            this.position.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.position.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.position.FormattingEnabled = true;
+            this.position.Items.AddRange(new object[] {
+            "Java Developer ",
+            "Php Developer",
+            ".Net Developer ",
+            "Software Tester",
+            "Devops",
+            ""});
+            this.position.Location = new System.Drawing.Point(172, 555);
+            this.position.Name = "position";
+            this.position.Size = new System.Drawing.Size(268, 39);
+            this.position.TabIndex = 22;
+            this.position.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(61, 564);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 25);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Position";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
             // Insert_Student
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1134, 608);
+            this.ClientSize = new System.Drawing.Size(1134, 694);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.position);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.female);
+            this.Controls.Add(this.male);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.currentPlace);
+            this.Controls.Add(this.profile);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.email);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.placeOfBirth);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateOfBirth);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.phone);
+            this.Controls.Add(this.lastname);
+            this.Controls.Add(this.firstname);
             this.Name = "Insert_Student";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profile)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox firstname;
+        private System.Windows.Forms.TextBox lastname;
+        private System.Windows.Forms.TextBox phone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateOfBirth;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox placeOfBirth;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox profile;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox currentPlace;
+        private System.Windows.Forms.CheckBox male;
+        private System.Windows.Forms.CheckBox female;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox position;
+        private System.Windows.Forms.Label label9;
     }
 }
