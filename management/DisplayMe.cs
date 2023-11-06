@@ -7,9 +7,9 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using management.model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace management
@@ -25,12 +25,12 @@ namespace management
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
- 
+
         }
 
         private void displayList()
         {
-            List<Student> students = new List<Student>();
+            List<Person> students = new List<Person>();
             string query = "SELECT * FROM students";
 
             string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
@@ -52,19 +52,19 @@ namespace management
                                 int phoneOrdinal = reader.GetOrdinal("Phone");
                                 int emailOrdinal = reader.GetOrdinal("Email");
                                 int genderOrdinal = reader.GetOrdinal("Gender");
+                                int idOrdinal = reader.GetOrdinal("ID");
 
+                                Person person = new Person();
+                                person.Id = reader.GetFieldValue<int>(idOrdinal);
+                                person.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
+                                person.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
+                                person.Email = reader.GetFieldValue<string>(emailOrdinal);
+                                person.Gender = reader.GetFieldValue<string>(genderOrdinal);
 
-                                Student student = new Student();
-                                student.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
-                                student.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
-                                student.Email = reader.GetFieldValue<string>(emailOrdinal);
-                                student.Position = reader.GetFieldValue<string>(positionOrdinal);
-                                student.Gender = reader.GetFieldValue<string>(genderOrdinal);
-                                
-                                //student.Position = reader.GetFieldValue<string>(positionOrdinal);
-                                student.Phone = reader.GetFieldValue<string>(phoneOrdinal);
+                                //person.Position = reader.GetFieldValue<string>(positionOrdinal);
+                                person.Phone = reader.GetFieldValue<string>(phoneOrdinal);
 
-                                students.Add(student);
+                                students.Add(person);
                             }
                         }
                     }
@@ -74,15 +74,8 @@ namespace management
 
 
             dataGridView1.DataSource = students;
-            dataGridView1.Columns["Id"].Visible = false;
-            dataGridView1.Columns["CurrentPlace"].Visible = false;
-            dataGridView1.Columns["PlaceOfBirth"].Visible = false;
-            dataGridView1.Columns["Dob"].Visible = false;
 
             dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.ReadOnly = true;
         }
 
@@ -98,6 +91,66 @@ namespace management
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
             this.displayList();
+        }
+
+
+        private void view_detail_Click(object sender, EventArgs e)
+        {
+            var id = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
+
+            string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
+            string query = "SELECT * FROM students WHERE Id = " + id;
+
+            using (var sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        Student student = this.setStudent(reader);
+                        View_Detail view_Detail = new View_Detail(student);
+                        view_Detail.Show();
+                    }
+                }
+            }
+        }
+
+        private void On_Cell_Click(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private Student setStudent(SqlDataReader reader)
+        {
+            int firstNameOrdinal = reader.GetOrdinal("Firstname");
+            int lastNameOrdinal = reader.GetOrdinal("Lastname");
+            int positionOrdinal = reader.GetOrdinal("Position");
+            int phoneOrdinal = reader.GetOrdinal("Phone");
+            int emailOrdinal = reader.GetOrdinal("Email");
+            int genderOrdinal = reader.GetOrdinal("Gender");
+            int idOrdinal = reader.GetOrdinal("ID");
+            int currentPlace = reader.GetOrdinal("Current_Place");
+            int dobOrdinal = reader.GetOrdinal("DOB");
+            int placeOfBirth = reader.GetOrdinal("Place_Of_Birth");
+            int profileOrdinal = reader.GetOrdinal("Profile");
+
+            Student student = new Student();
+            student.Id = reader.GetFieldValue<int>(idOrdinal);
+            student.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
+            student.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
+            student.Email = reader.GetFieldValue<string>(emailOrdinal);
+            student.Gender = reader.GetFieldValue<string>(genderOrdinal);
+            student.Position = reader.GetFieldValue<string>(positionOrdinal);
+            student.CurrentPlace = reader.GetFieldValue<string>(currentPlace);
+            student.Phone = reader.GetFieldValue<string>(phoneOrdinal);
+            student.Dob = reader.GetFieldValue<DateTime>(dobOrdinal);
+            student.PlaceOfBirth = reader.GetFieldValue<string>(placeOfBirth);
+            student.Profile = reader.GetFieldValue<string>(profileOrdinal);
+
+            return student;
         }
     }
 }

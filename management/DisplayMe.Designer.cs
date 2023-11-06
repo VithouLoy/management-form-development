@@ -32,7 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.view_detail = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Search = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,17 +44,21 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Location = new System.Drawing.Point(174, 73);
+            this.dataGridView1.Location = new System.Drawing.Point(160, 73);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(992, 455);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.On_Cell_Click);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // button1
@@ -85,14 +89,15 @@
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // view_detail
             // 
-            this.button4.Location = new System.Drawing.Point(12, 381);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 55);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "View Detail";
-            this.button4.UseVisualStyleBackColor = true;
+            this.view_detail.Location = new System.Drawing.Point(12, 381);
+            this.view_detail.Name = "view_detail";
+            this.view_detail.Size = new System.Drawing.Size(142, 55);
+            this.view_detail.TabIndex = 4;
+            this.view_detail.Text = "View Detail";
+            this.view_detail.UseVisualStyleBackColor = true;
+            this.view_detail.Click += new System.EventHandler(this.view_detail_Click);
             // 
             // textBox1
             // 
@@ -161,7 +166,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.view_detail);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -181,7 +186,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Delete;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button view_detail;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Search;
         private System.Windows.Forms.Button button3;

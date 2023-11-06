@@ -1,2 +1,1 @@
-﻿
-INSERT INTO students (Firstname, Lastname, DOB, Position) VALUES ('Jane', 'Jones', GETDATE(), 'Java')
+﻿SELECT * FROM students WHERE Id = 1

@@ -68,7 +68,7 @@ namespace management
                             cmd.Parameters.AddWithValue("@DOB", SqlDbType.Date).Value = dateOfBirth.Value.Date;
                             cmd.Parameters.AddWithValue("@Current_Place", currentPlace.Text);
                             cmd.Parameters.AddWithValue("@Place_Of_Birth", placeOfBirth.Text);
-                            cmd.Parameters.AddWithValue("@Gender", string.IsNullOrEmpty(male.Text) ? female.Text : male.Text);
+                            cmd.Parameters.AddWithValue("@Gender", female.Enabled ? female.Text : male.Text);
                             cmd.Parameters.AddWithValue("@Position", position.Text);
                             cmd.Parameters.AddWithValue("@Profile", profileUUID);
                             sqlConnection.Open();
@@ -165,6 +165,66 @@ namespace management
         }
 
         private void placeOfBirth_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void currentPlace_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateOfBirth_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void phone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lastname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Insert_Student_Load(object sender, EventArgs e)
         {
 
         }
