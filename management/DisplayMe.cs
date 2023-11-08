@@ -10,17 +10,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using management.constant;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace management
 {
     public partial class DisplayMe : Form
     {
+
         public DisplayMe()
         {
 
             InitializeComponent();
-            this.displayList();
+            this.displayList("SELECT * FROM students WHERE Deleted = 0", true);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -28,10 +30,10 @@ namespace management
 
         }
 
-        private void displayList()
+
+        private List<Person> displayList(string query, bool isDisplay)
         {
             List<Person> students = new List<Person>();
-            string query = "SELECT * FROM students";
 
             string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
             using (var sqlConnection = new SqlConnection(connectionString))
@@ -72,55 +74,89 @@ namespace management
             }
 
 
+            if (isDisplay)
+            {
+                dataGridView1.DataSource = students;
 
-            dataGridView1.DataSource = students;
+                dataGridView1.AllowUserToResizeColumns = false;
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.ReadOnly = true;
+            }
 
-            dataGridView1.AllowUserToResizeColumns = false;
-            dataGridView1.ReadOnly = true;
+            return students;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Insert_Student insert_Student = new Insert_Student();
-            insert_Student.ShowDialog();
+            Insert_Student insert_Student = new Insert_Student(new Student(), "NONE");
+            insert_Student.Show();
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
+            this.doRefresh();
+        }
+
+        private void doRefresh()
+        {
             this.dataGridView1.DataSource = null;
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
-            this.displayList();
+            this.displayList("SELECT * FROM students", true);
         }
 
 
         private void view_detail_Click(object sender, EventArgs e)
         {
-            var id = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
+            this.view(Student_Constants.VIEW_DETAIL);
+        }
 
-            string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
-            string query = "SELECT * FROM students WHERE Id = " + id;
-
-            using (var sqlConnection = new SqlConnection(connectionString))
+        private void view(String type)
+        {
+            if (dataGridView1.CurrentRow != null)
             {
-                sqlConnection.Open();
-                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
-                {
-                    SqlDataReader reader = cmd.ExecuteReader();
+                var id = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
 
-                    if (reader.Read())
+                string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
+                string query = "SELECT * FROM students WHERE Id = " + id;
+
+                using (var sqlConnection = new SqlConnection(connectionString))
+                {
+                    sqlConnection.Open();
+                    using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                     {
-                        Student student = this.setStudent(reader);
-                        View_Detail view_Detail = new View_Detail(student);
-                        view_Detail.Show();
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            Student student = this.setStudent(reader);
+                            if (type == Student_Constants.VIEW_DETAIL)
+                            {
+                                this.view(student, Student_Constants.VIEW_DETAIL);
+                            }
+                            else if (type == Student_Constants.MODIFY_DETAIL)
+                            {
+                                this.view(student, Student_Constants.MODIFY_DETAIL);
+                            } else if (type == Student_Constants.STUDENT_REMOVAL)
+                            {
+                                DeleteStudent deleteStudent = new DeleteStudent(student);
+                                deleteStudent.Show();
+                            } 
+                        }
                     }
                 }
             }
         }
 
+        private void view(Student student, String type)
+        {
+            Insert_Student view_Detail = new Insert_Student(student, type);
+            view_Detail.Show();
+        }
+
         private void On_Cell_Click(object sender, DataGridViewCellEventArgs e)
         {
-           
+
         }
 
         private Student setStudent(SqlDataReader reader)
@@ -151,6 +187,39 @@ namespace management
             student.Profile = reader.GetFieldValue<string>(profileOrdinal);
 
             return student;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.view(Student_Constants.MODIFY_DETAIL);
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            this.view(Student_Constants.STUDENT_REMOVAL);
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(find.Text))
+            {
+                string query = string.Format("SELECT * FROM students WHERE (Firstname LIKE '%{0}%' OR Lastname LIKE '%{0}%' OR Email LIKE '%{0}%' OR Phone LIKE '%{0}%' OR Gender = '{0}') AND Deleted = 0", find.Text);
+                this.displayList(query, true);
+            } else
+            {
+                this.displayList("SELECT * FROM students WHERE Deleted = 0", true);
+            }
+        }
+
+        private void achive_Click(object sender, EventArgs e)
+        {
+            List<Person> students = this.displayList("SELECT * FROM students WHERE Deleted = 1", false);
+
+            if (students != null)
+            {
+                StudentAchive studentAchive = new StudentAchive(students);
+                studentAchive.Show();
+            }
         }
     }
 }

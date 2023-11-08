@@ -10,23 +10,64 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using management.constant;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace management
 {
     public partial class Insert_Student : Form
     {
+        private string type = "NONE";
         private string extension = ".png";
-        public Insert_Student()
+        private Student student = new Student();
+        public Insert_Student(Student student, String type)
         {
             InitializeComponent();
             position.SelectedIndex = 0;
+            this.disableElement(student, type);
+            this.student = student;
+            this.type = type;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void disableElement(Student student, string type)
+        {
+            if (type == Student_Constants.VIEW_DETAIL)
+            {
+                firstname.Enabled = placeOfBirth.Enabled = lastname.Enabled = email.Enabled = male.Enabled = female.Enabled = profile.Enabled = dateOfBirth.Enabled = currentPlace.Enabled = phone.Enabled = position.Enabled = submit.Enabled = submit.Enabled = false;
+                choose.Hide();
+                submit.Hide();
+                displayStudent(student);
+            }
+
+            if (type == Student_Constants.MODIFY_DETAIL)
+            {
+                displayStudent(student);
+            }
+        }
+
+        public void displayStudent(Student student)
+        {
+            firstname.Text = student.Firstname;
+            lastname.Text = student.Lastname;
+            email.Text = student.Email;
+            phone.Text = student.Phone;
+            currentPlace.Text = student.CurrentPlace;
+            dateOfBirth.Value = student.Dob;
+            placeOfBirth.Text = student.PlaceOfBirth;
+            position.Text = student.Position;
+            male.Checked = student.Gender == "Male";
+            female.Checked = student.Gender == "Female";
+            profile.Image = Image.FromFile(System.IO.Path.Combine(Directory.GetCurrentDirectory(), "Images", student.Profile));
+            profile.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -41,22 +82,33 @@ namespace management
 
             }
             profile.Show();
-
-
-            SqlConnection conn = new SqlConnection();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (isMatchCondition())
+            {
+                StringBuilder sb = new StringBuilder();
+                if (type == "NONE")
+                {
+                    sb.Append("INSERT INTO students(Firstname, Lastname, Email, Phone, DOB, Current_Place, Place_Of_Birth, Gender, Position, Profile) VALUES(@Firstname, @Lastname, @Email, @Phone, @DOB, @Current_Place, @Place_Of_Birth, @Gender, @Position, @Profile)");
+                }
+                else if (type == Student_Constants.MODIFY_DETAIL)
+                {
+                    sb.Append("UPDATE students SET Firstname = @Firstname, Lastname = @Lastname, Email = @Email, DOB = @DOB, Place_Of_Birth = @Place_Of_Birth, Current_Place = @Current_Place, Phone = @Phone, Position = @Position, Profile = @Profile, Gender = @Gender WHERE Id = " + student.Id);
+                }
+                this.execute(sb.ToString());
+            }
+        }
+
+        private void execute(string query)
         {
             string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
 
             try
             {
-                if (isMatchCondition())
-                {
+
                     string profileUUID = Guid.NewGuid().ToString() + extension;
-                    string query = string.Format("INSERT INTO students (Firstname, Lastname, Email, Phone, DOB, Current_Place, Place_Of_Birth, Gender, Position, Profile) VALUES (@Firstname, @Lastname, @Email, @Phone, @DOB, @Current_Place, @Place_Of_Birth, @Gender, @Position, @Profile)");
                     using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                     {
                         using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
@@ -65,30 +117,33 @@ namespace management
                             cmd.Parameters.AddWithValue("@Lastname", lastname.Text);
                             cmd.Parameters.AddWithValue("@Email", email.Text);
                             cmd.Parameters.AddWithValue("@Phone", phone.Text);
-                            cmd.Parameters.AddWithValue("@DOB", SqlDbType.Date).Value = dateOfBirth.Value.Date;
+                            cmd.Parameters.AddWithValue("@DOB", dateOfBirth.Value.Date);
                             cmd.Parameters.AddWithValue("@Current_Place", currentPlace.Text);
                             cmd.Parameters.AddWithValue("@Place_Of_Birth", placeOfBirth.Text);
-                            cmd.Parameters.AddWithValue("@Gender", female.Enabled ? female.Text : male.Text);
+                            cmd.Parameters.AddWithValue("@Gender", female.Enabled ? "Female" : "Male");
                             cmd.Parameters.AddWithValue("@Position", position.Text);
                             cmd.Parameters.AddWithValue("@Profile", profileUUID);
                             sqlConnection.Open();
 
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show("Students sucessfully inserted!");
+                            MessageBox.Show("ដំណើរការទទួលបានជោគជ៍យ");
                         }
                     }
 
-                    string pathToStore = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "Images", profileUUID);
+                        string pathToStore = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "Images", profileUUID);
 
-                    profile.Image.Save(pathToStore);
+                     profile.Image.Save(pathToStore);
 
+                     this.Close();
 
-                    this.Close();
-                }
+                     Form form = DisplayMe.ActiveForm;
+                     form.Close();
 
+                     DisplayMe displayMe = new DisplayMe();
+                     displayMe.Show();
 
-
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -131,12 +186,12 @@ namespace management
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            female.Enabled = !male.Checked;
+            female.Checked = !male.Checked;
         }
 
         private void female_CheckedChanged(object sender, EventArgs e)
         {
-            male.Enabled = !female.Checked;
+            male.Checked = !female.Checked;
         }
 
         private void profile_Click(object sender, EventArgs e)
@@ -225,6 +280,26 @@ namespace management
         }
 
         private void Insert_Student_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
         {
 
         }

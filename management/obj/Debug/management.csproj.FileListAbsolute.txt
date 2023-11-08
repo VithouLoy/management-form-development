@@ -118,3 +118,5 @@ C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\
 C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\Debug\management.pdb
 C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\Debug\management.Insert_Student.resources
 C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\Debug\management.View_Detail.resources
+C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\Debug\management.DeleteStudent.resources
+C:\Users\THENCHANTHAVITHOU\Documents\management-form-development\management\obj\Debug\management.StudentAchive.resources
