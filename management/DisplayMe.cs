@@ -5,12 +5,21 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CsvHelper;
+using ExcelDataReader;
+using GemBox.Spreadsheet;
 using management.constant;
+using management.document;
+using management.factory;
+using management.mapper;
+using management.repository;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace management
@@ -20,76 +29,28 @@ namespace management
 
         public DisplayMe()
         {
-
             InitializeComponent();
-            this.displayList("SELECT * FROM students WHERE Deleted = 0", true);
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-
-        private List<Person> displayList(string query, bool isDisplay)
+        public void initPerson(List<Student> people)
         {
-            List<Person> students = new List<Person>();
-
-            string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
-            using (var sqlConnection = new SqlConnection(connectionString))
-            {
-                sqlConnection.Open();
-
-                using (SqlCommand cmd = new SqlCommand(string.Format(query), sqlConnection))
-                {
-                    using (DbDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                int firstNameOrdinal = reader.GetOrdinal("Firstname");
-                                int lastNameOrdinal = reader.GetOrdinal("Lastname");
-                                int positionOrdinal = reader.GetOrdinal("Position");
-                                int phoneOrdinal = reader.GetOrdinal("Phone");
-                                int emailOrdinal = reader.GetOrdinal("Email");
-                                int genderOrdinal = reader.GetOrdinal("Gender");
-                                int idOrdinal = reader.GetOrdinal("ID");
-
-                                Person person = new Person();
-                                person.Id = reader.GetFieldValue<int>(idOrdinal);
-                                person.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
-                                person.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
-                                person.Email = reader.GetFieldValue<string>(emailOrdinal);
-                                person.Gender = reader.GetFieldValue<string>(genderOrdinal);
-
-                                //person.Position = reader.GetFieldValue<string>(positionOrdinal);
-                                person.Phone = reader.GetFieldValue<string>(phoneOrdinal);
-
-                                students.Add(person);
-                            }
-                        }
-                    }
-                }
-            }
-
-
-            if (isDisplay)
-            {
-                dataGridView1.DataSource = students;
-
-                dataGridView1.AllowUserToResizeColumns = false;
-                dataGridView1.Columns["Id"].Visible = false;
-                dataGridView1.ReadOnly = true;
-            }
-
-            return students;
+            this.dataGridView1.DataSource =  people;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void initUser(User user)
         {
-            Insert_Student insert_Student = new Insert_Student(new Student(), "NONE");
-            insert_Student.Show();
+        }
+
+        private void insert_Click(object sender, EventArgs e)
+        {
+
+            this.displayInsertDetail(new Student(), "NONE");
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -102,56 +63,14 @@ namespace management
             this.dataGridView1.DataSource = null;
             this.dataGridView1.Update();
             this.dataGridView1.Refresh();
-            this.displayList("SELECT * FROM students", true);
+            this.displayAll();
         }
 
 
         private void view_detail_Click(object sender, EventArgs e)
         {
-            this.view(Student_Constants.VIEW_DETAIL);
-        }
-
-        private void view(String type)
-        {
-            if (dataGridView1.CurrentRow != null)
-            {
-                var id = dataGridView1.CurrentRow.Cells["Id"].Value.ToString();
-
-                string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
-                string query = "SELECT * FROM students WHERE Id = " + id;
-
-                using (var sqlConnection = new SqlConnection(connectionString))
-                {
-                    sqlConnection.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
-                    {
-                        SqlDataReader reader = cmd.ExecuteReader();
-
-                        if (reader.Read())
-                        {
-                            Student student = this.setStudent(reader);
-                            if (type == Student_Constants.VIEW_DETAIL)
-                            {
-                                this.view(student, Student_Constants.VIEW_DETAIL);
-                            }
-                            else if (type == Student_Constants.MODIFY_DETAIL)
-                            {
-                                this.view(student, Student_Constants.MODIFY_DETAIL);
-                            } else if (type == Student_Constants.STUDENT_REMOVAL)
-                            {
-                                DeleteStudent deleteStudent = new DeleteStudent(student);
-                                deleteStudent.Show();
-                            } 
-                        }
-                    }
-                }
-            }
-        }
-
-        private void view(Student student, String type)
-        {
-            Insert_Student view_Detail = new Insert_Student(student, type);
-            view_Detail.Show();
+            Student student = this.getStudent();
+            this.displayInsertDetail(student, Student_Constants.VIEW_DETAIL);
         }
 
         private void On_Cell_Click(object sender, DataGridViewCellEventArgs e)
@@ -159,66 +78,113 @@ namespace management
 
         }
 
-        private Student setStudent(SqlDataReader reader)
+        private void modify_Click(object sender, EventArgs e)
         {
-            int firstNameOrdinal = reader.GetOrdinal("Firstname");
-            int lastNameOrdinal = reader.GetOrdinal("Lastname");
-            int positionOrdinal = reader.GetOrdinal("Position");
-            int phoneOrdinal = reader.GetOrdinal("Phone");
-            int emailOrdinal = reader.GetOrdinal("Email");
-            int genderOrdinal = reader.GetOrdinal("Gender");
-            int idOrdinal = reader.GetOrdinal("ID");
-            int currentPlace = reader.GetOrdinal("Current_Place");
-            int dobOrdinal = reader.GetOrdinal("DOB");
-            int placeOfBirth = reader.GetOrdinal("Place_Of_Birth");
-            int profileOrdinal = reader.GetOrdinal("Profile");
+            Student student = this.getStudent();
+            this.displayInsertDetail(student, Student_Constants.MODIFY_DETAIL);
+        }
 
-            Student student = new Student();
-            student.Id = reader.GetFieldValue<int>(idOrdinal);
-            student.Firstname = reader.GetFieldValue<string>(firstNameOrdinal);
-            student.Lastname = reader.GetFieldValue<string>(lastNameOrdinal);
-            student.Email = reader.GetFieldValue<string>(emailOrdinal);
-            student.Gender = reader.GetFieldValue<string>(genderOrdinal);
-            student.Position = reader.GetFieldValue<string>(positionOrdinal);
-            student.CurrentPlace = reader.GetFieldValue<string>(currentPlace);
-            student.Phone = reader.GetFieldValue<string>(phoneOrdinal);
-            student.Dob = reader.GetFieldValue<DateTime>(dobOrdinal);
-            student.PlaceOfBirth = reader.GetFieldValue<string>(placeOfBirth);
-            student.Profile = reader.GetFieldValue<string>(profileOrdinal);
+
+        private Student getStudent()
+        {
+            IReaderListRepository<Student> studentRepository = new StudentReaderRepository();
+
+            Student student = studentRepository.ReadBy(dataGridView1.CurrentRow.Cells["Id"].Value.ToString());
 
             return student;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void displayInsertDetail(Student student, String type)
         {
-            this.view(Student_Constants.MODIFY_DETAIL);
+            InsertStudent insertStudent = new InsertStudent(student, type);
+            insertStudent.Show();
         }
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            this.view(Student_Constants.STUDENT_REMOVAL);
+            Student student = this.getStudent();
+
+            PopUp deleteStudent = new PopUp();
+            deleteStudent.initStudent(student);
+
+            deleteStudent.Show();
         }
 
         private void search_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(find.Text))
             {
-                string query = string.Format("SELECT * FROM students WHERE (Firstname LIKE '%{0}%' OR Lastname LIKE '%{0}%' OR Email LIKE '%{0}%' OR Phone LIKE '%{0}%' OR Gender = '{0}') AND Deleted = 0", find.Text);
-                this.displayList(query, true);
+                IReaderListRepository<Person> personReaderRepository = new PersonReaderRepository();
+                dataGridView1.DataSource =  personReaderRepository.ReadAllBy(find.Text);
             } else
             {
-                this.displayList("SELECT * FROM students WHERE Deleted = 0", true);
+                this.displayAll();
             }
         }
 
-        private void achive_Click(object sender, EventArgs e)
+        private void DisplayMe_Load(object sender, EventArgs e)
         {
-            List<Person> students = this.displayList("SELECT * FROM students WHERE Deleted = 1", false);
+            this.displayAll();   
+        }
 
-            if (students != null)
+        private void displayAll()
+        {
+            IReaderListRepository<Person> personReader = new PersonReaderRepository();
+
+            dataGridView1.DataSource = personReader.ReadAll();
+            dataGridView1.Columns["Id"].Visible = false;
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void filter_Click(object sender, EventArgs e)
+        {
+            InsertStudent insertStudent = new InsertStudent(new Student(), Student_Constants.STUDENT_FILTERING);
+            insertStudent.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            PopUp logout = new PopUp();
+            logout.initLogout();
+            logout.Show();
+        }
+
+        private void export_Click(object sender, EventArgs e)
+        {
+            ExportData exportData = new ExportData();
+            exportData.Show();
+        }
+
+        private void import_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Document Files (*.xlsx;*.csv;.*.txt;*.json;)|*.xlsx;*.csv;.*.txt;*.json";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                StudentAchive studentAchive = new StudentAchive(students);
-                studentAchive.Show();
+                IWriterRepository<Student> student = new StudentWriterRepository();
+
+                IDataImporter<Student> dataImporter = StudentImporterFactory.create(Path.GetExtension(openFileDialog.FileName));
+                
+                student.AddAll(dataImporter.import(openFileDialog.FileName));
+
+                MessageBox.Show("ដំណើរការជោគជ័យ");
+
+                this.displayAll();
             }
         }
     }

@@ -8,12 +8,12 @@ using System.Threading.Tasks;
     {
         private string placeOfBirth;
         private string currentPlace;
-        private DateTime dob;
+        private DateTime dateOfBirth;
 
         public string PlaceOfBirth { get { return placeOfBirth; } set { placeOfBirth = value; } }
         public string CurrentPlace { get { return currentPlace; } set { currentPlace = value; } }
 
-        public DateTime Dob { get { return dob; } set { dob = value; } }
+        public DateTime DateOfBirth { get { return dateOfBirth; } set { dateOfBirth = value; } }
 
     }
 

@@ -12,5 +12,6 @@ namespace management.constant
         public const string MODIFY_DETAIL = "Modify_Detail";
         public const string STUDENT_REMOVAL = "Student_Removal";
         public const string STUDENT_ARCHIVING = "Student_Archiving";
+        public const string STUDENT_FILTERING = "Student_Filerting";
     }
 }

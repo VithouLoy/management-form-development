@@ -1,1 +1,1 @@
-﻿SELECT * FROM students WHERE Id = 1
+﻿DELETE FROM students

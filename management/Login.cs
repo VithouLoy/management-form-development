@@ -112,25 +112,29 @@ namespace management
 
         private void login_btn(object sender, EventArgs e)
         {
-          
-            User user = new User();
-            user.Username = username.Text;
-            user.Password = password.Text;
+
+
             string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=student;Integrated Security=True;";
 
             using (var sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
 
-                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT Username, Password FROM users WHERE Username = '{0}' AND Password = '{1}'", user.Username, user.Password), sqlConnection))
+                using (SqlCommand cmd = new SqlCommand(string.Format("SELECT Username, Password FROM users WHERE Username = '{0}' AND Password = '{1}'", username.Text, password.Text), sqlConnection))
                 {
                     using (DbDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
+                            User userLogin = new User();
+
+                            userLogin.Username = username.Text;
+                            userLogin.Password = password.Text;
                             DisplayMe displayMe = new DisplayMe();
+                            displayMe.initUser(userLogin);
+
                             this.Hide();
-                            displayMe.ShowDialog();
+                            displayMe.Show();
                         }
                         else
                         {
@@ -139,7 +143,7 @@ namespace management
                     };
                 }
             }
-  
+
             username.Clear();
             password.Clear();
             //DisplayMe displayMe = new DisplayMe();
@@ -157,5 +161,5 @@ namespace management
             forgot form3 = new forgot();
             form3.ShowDialog();
         }
-     }
+    }
 }

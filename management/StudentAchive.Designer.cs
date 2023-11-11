@@ -44,13 +44,13 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 45);
+            this.dataGridView1.Location = new System.Drawing.Point(28, 12);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(686, 487);
+            this.dataGridView1.Size = new System.Drawing.Size(686, 520);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -60,12 +60,13 @@
             this.redo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.redo.Font = new System.Drawing.Font("Khmer OS Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redo.ForeColor = System.Drawing.Color.White;
-            this.redo.Location = new System.Drawing.Point(743, 45);
+            this.redo.Location = new System.Drawing.Point(743, 12);
             this.redo.Name = "redo";
             this.redo.Size = new System.Drawing.Size(201, 84);
             this.redo.TabIndex = 2;
             this.redo.Text = "ធ្វើឡើងវិញ";
             this.redo.UseVisualStyleBackColor = false;
+            this.redo.Click += new System.EventHandler(this.redo_Click);
             // 
             // button1
             // 
@@ -73,7 +74,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Khmer OS Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(743, 306);
+            this.button1.Location = new System.Drawing.Point(743, 230);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 89);
             this.button1.TabIndex = 3;
@@ -86,7 +87,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Khmer OS Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(743, 172);
+            this.button2.Location = new System.Drawing.Point(743, 119);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 84);
             this.button2.TabIndex = 4;
@@ -99,7 +100,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Khmer OS Battambang", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(743, 443);
+            this.button3.Location = new System.Drawing.Point(743, 344);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(201, 89);
             this.button3.TabIndex = 5;
@@ -116,9 +117,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.redo);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "StudentAchive";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentAchive";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentAchive_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.StudentAchive_FormClosed);
+            this.Load += new System.EventHandler(this.StudentAchive_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

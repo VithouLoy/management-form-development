@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="management.constant.Query" Collapsed="true">
+    <Position X="16" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>constant\Query.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.constant.Student_Constants" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAEAAAAAAAAAAAACAAAAAAAAAAAACAE=</HashCode>
+      <FileName>constant\Student_Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.DataSource" Collapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.DisplayMe" Collapsed="true">
+    <Position X="16" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQgAAQQgDAAAAgCAAKCAAICABk5AEAACAAEBBLiAAA=</HashCode>
+      <FileName>DisplayMe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.forgot" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAACQQCCAAABAAAACAABECAgAIAAAAAEAIQQAEAAA=</HashCode>
+      <FileName>Forgot-Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.ForgotPassword" Collapsed="true">
+    <Position X="19.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAQAAAAEAAEAAAABCAAEAAgAAAAA=</HashCode>
+      <FileName>ForgotPassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.ImportData" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImportData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.InsertStudent" Collapsed="true">
+    <Position X="16" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MiBAEAAACGhCQFAgAACBIAICMAABEEAwAQEAAQQBAAE=</HashCode>
+      <FileName>InsertStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Authentication" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABgEIAwAAKAAQBAAAUiAAAESACwkAQAAAAQBAwBAEAA=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Logout" Collapsed="true">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.PopUp" Collapsed="true">
+    <Position X="12.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAACAACgAAEAAAACAAQACAAABAAAAAAAAgAAiACA=</HashCode>
+      <FileName>PopUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Program" Collapsed="true">
+    <Position X="14.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Form2" Collapsed="true">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIQAACAAABAAAACACAESAAAIAAAAAEAAQwAAAAA=</HashCode>
+      <FileName>Sign-up.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.StudentAchive" Collapsed="true">
+    <Position X="12.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAAAAABGAAAACAAg4AAAAAAQEAAASCAA=</HashCode>
+      <FileName>StudentAchive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.View_Detail" Collapsed="true">
+    <Position X="12.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MgBAEAQAEGhCABAgAACAIAICAAAAEAAgAAAAAQQBKAE=</HashCode>
+      <FileName>View_Detail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.repository.AbstractDataImporter&lt;T&gt;" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAABAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>document\AbstractDataImporter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="management.repository.AbstractReaderRepository&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>repository\AbstractReaderRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="management.repository.AbstractSqlListReader&lt;T&gt;" Collapsed="true">
+    <Position X="2" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAACAAAAAAQACGIAAAEAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>repository\AbstractSqlListReader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.repository.AbstractSqlWriter&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAIAAAAAAAAAQACAAAAAAAAAAAAAQCAAACAAACAAA=</HashCode>
+      <FileName>repository\AbstractSqlWriter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="management.repository.AbstractWriterRepository&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAYAAIAAAAQAAAAAAAAAAAAAAAEAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\AbstractWriterRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="management.repository.PersonReaderRepository" Collapsed="true">
+    <Position X="3.25" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\PersonReaderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.repository.StudentReaderRepository" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACGAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\StudentReaderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.repository.StudentWriterRepository" Collapsed="true">
+    <Position X="0.5" Y="10.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAACAAAAAAAAAAAAAACAQACAAAAAAA=</HashCode>
+      <FileName>repository\StudentWriterRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.document.ExcelImporter&lt;T&gt;" Collapsed="true">
+    <Position X="8" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>document\ExcelImporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.document.JsonDataImporter&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>document\JsonDataImporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.factory.StudentImporterFactory" Collapsed="true">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>factory\StudentImporterFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.mapper.PersonDataMapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mapper\PersonDataMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="management.mapper.StudentDataMapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mapper\StudentDataMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="management.mapper.StudentExcelMapper" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mapper\StudentExcelMapper.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Person" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAChAAACoAAAAgAAAAAAAAAAgAAAAIAAAAgA=</HashCode>
+      <FileName>model\Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PersonDetail" Collapsed="true">
+    <Position X="6.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAABAAAAAAAAAAAAIAAAASAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>model\PersonDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student" Collapsed="true">
+    <Position X="6.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAIAAAAAAAEAAAABAAAAAAAAA=</HashCode>
+      <FileName>model\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User" Collapsed="true">
+    <Position X="10.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAEAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Properties.Resources" Collapsed="true">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Properties.Settings" Collapsed="true">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.utils.ImageIOUtils" Collapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>utils\ImageIOUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.utils.DateTimeConverterUsingDateTimeParse" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>utils\DateTimeConverterUsingDateTimeParse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.Loading" Collapsed="true">
+    <Position X="17.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAABAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Loading.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.document.CsvImporter&lt;T&gt;" Collapsed="true">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>document\CsvImporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.document.AbstractCsvSetting&lt;T&gt;" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>document\.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="management.mapper.StudentCsvMapper" Collapsed="true">
+    <Position X="14.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mapper\StudentCsvMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="management.repository.IDataImporter&lt;T&gt;" Collapsed="true">
+    <Position X="10.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>document\IDataImporter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="management.repository.IDataSource" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\IDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="management.repository.IReaderListRepository&lt;T&gt;" Collapsed="true">
+    <Position X="16" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>repository\IReaderListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="management.repository.IWriterRepository&lt;T&gt;" Collapsed="true">
+    <Position X="17.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\IWriterRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="management.mapper.IEntityMapper&lt;T&gt;" Collapsed="true">
+    <Position X="14.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mapper\IEntityMapper.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="management.ImporterType" Collapsed="true">
+    <Position X="10.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAACAAAAgAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>enum\ImporterType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="management.PopUpEnumeration" Collapsed="true">
+    <Position X="12.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PopUpEnumeration.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="management.repository.QueryReader" Collapsed="true">
+    <Position X="14.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAEA=</HashCode>
+      <FileName>repository\QueryReader.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="management.repository.QueryWriter" Collapsed="true">
+    <Position X="16" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>repository\QueryWriter.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
